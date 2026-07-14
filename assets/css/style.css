@@ -1867,3 +1867,189 @@ nav {
     color: #030712 !important;
     transform: translateY(-1px);
 }
+
+/* --- AYDINLIK TEMA (LIGHT MODE) STILLERİ --- */
+body.light-theme {
+    --bg-dark: #f8fafc;
+    background-image: radial-gradient(circle at 50% 0%, #e2e8f0 0%, #f1f5f9 70%);
+    color: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-bg-hover: rgba(255, 255, 255, 0.95);
+    --card-border: rgba(15, 23, 42, 0.08);
+    --card-border-hover: rgba(15, 23, 42, 0.15);
+    --text-muted: #64748b;
+}
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme .text-white,
+body.light-theme .card-title,
+body.light-theme .page-title {
+    color: #0f172a !important;
+}
+
+body.light-theme .text-secondary,
+body.light-theme .text-light,
+body.light-theme p,
+body.light-theme .timeline-desc,
+body.light-theme .promise-desc,
+body.light-theme .grid-subtitle {
+    color: #334155 !important;
+}
+
+body.light-theme nav {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .navbar-nav .nav-link {
+    color: #334155 !important;
+}
+
+body.light-theme .navbar-nav .nav-link.active,
+body.light-theme .navbar-nav .nav-link:hover {
+    color: var(--primary-hover) !important;
+}
+
+body.light-theme .dropdown-menu {
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .dropdown-item {
+    color: #334155 !important;
+}
+
+body.light-theme .dropdown-item:hover {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .navbar-status span {
+    color: #334155 !important;
+}
+
+body.light-theme .accessibility-btn {
+    background: rgba(15, 23, 42, 0.05);
+    border-color: rgba(15, 23, 42, 0.1);
+    color: #334155;
+}
+
+body.light-theme .accessibility-btn:hover {
+    background: var(--primary);
+    color: #030712;
+}
+
+/* Kartların Açık Tema Düzenlemeleri */
+body.light-theme .wizard-card {
+    background: #ffffff !important;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05) !important;
+}
+
+body.light-theme .option-card {
+    background: #f8fafc !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+    color: #334155 !important;
+}
+
+body.light-theme .option-card:hover {
+    border-color: var(--primary) !important;
+    background: #f1f5f9 !important;
+}
+
+body.light-theme .option-card.selected {
+    background: rgba(0, 242, 254, 0.08) !important;
+    border-color: var(--primary) !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .stat-card {
+    background: #ffffff !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05) !important;
+}
+
+body.light-theme .stat-num {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+body.light-theme .review-card {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .review-text {
+    color: #334155 !important;
+}
+
+body.light-theme .author-info h5 {
+    color: #0f172a !important;
+}
+
+body.light-theme .timeline-icon-box {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .timeline-step-num {
+    color: var(--primary-hover) !important;
+}
+
+body.light-theme .badge-item {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .badge-item:hover {
+    border-color: var(--primary) !important;
+    background: #ffffff !important;
+}
+
+body.light-theme .badge-label {
+    color: #334155 !important;
+}
+
+body.light-theme .district-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .district-card:hover {
+    background: #ffffff !important;
+    border-color: var(--primary) !important;
+}
+
+body.light-theme .live-search-wrapper input {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.15) !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .live-search-wrapper input::placeholder {
+    color: #94a3b8 !important;
+}
+
+body.light-theme article {
+    background: #ffffff !important;
+    border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .tab-btn {
+    background: rgba(15, 23, 42, 0.05) !important;
+    color: #475569 !important;
+}
+
+body.light-theme .tab-btn.active {
+    background: var(--primary) !important;
+    color: #030712 !important;
+}
+
+body.light-theme .map-overlay-badge {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: var(--primary) !important;
+}

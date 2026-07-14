@@ -187,6 +187,7 @@ function updateLiveStatusDot() {
 // Sayfa yüklendiğinde butonları dinle ve saat durumunu güncelle
 document.addEventListener('DOMContentLoaded', () => {
     updateLiveStatusDot();
+    injectThemeToggle();
     
     // Hızlı WhatsApp butonlarını bağla
     document.querySelectorAll('.sub-whatsapp-btn, .btn-whatsapp').forEach(btn => {
@@ -263,3 +264,55 @@ function sendSMSLocation() {
         window.location.href = `sms:${phone}?body=${encodeURIComponent(baseMsg)}`;
     }
 }
+
+// ☀️ / 🌙 Aydınlık & Karanlık Tema Değiştirici Fonksiyonlar
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('light-theme');
+    
+    const themeBtn = document.querySelector('.theme-toggle-btn');
+    const isLight = body.classList.contains('light-theme');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    
+    if (themeBtn) {
+        themeBtn.innerHTML = isLight ? '🌙' : '☀️';
+        themeBtn.title = isLight ? 'Karanlık Temaya Geç' : 'Aydınlık Temaya Geç';
+    }
+}
+
+function injectThemeToggle() {
+    if (document.querySelector('.theme-toggle-btn')) return;
+    
+    const navbarStatus = document.querySelector('.navbar-status');
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'accessibility-btn theme-toggle-btn';
+    
+    // Mevcut tema durumunu kontrol et
+    const isLight = document.body.classList.contains('light-theme');
+    toggleBtn.innerHTML = isLight ? '🌙' : '☀️';
+    toggleBtn.title = isLight ? 'Karanlık Temaya Geç' : 'Aydınlık Temaya Geç';
+    
+    toggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleTheme();
+    });
+    
+    if (navbarStatus) {
+        navbarStatus.appendChild(toggleBtn);
+    } else {
+        const navbarBrand = document.querySelector('.navbar-brand');
+        if (navbarBrand) {
+            toggleBtn.style.marginLeft = '15px';
+            navbarBrand.parentNode.insertBefore(toggleBtn, navbarBrand.nextSibling);
+        }
+    }
+}
+
+// Tema durumunu sayfa yüklenmeden önce anında uygula (Beyaz ekran parlamasını önlemek için)
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme'); // html'e de ekleyelim
+        document.body.classList.add('light-theme');
+    }
+})();
