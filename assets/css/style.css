@@ -222,12 +222,12 @@ nav {
 }
 
 .btn-rep { 
-    background: var(--success); 
-    color: white; 
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    color: #030712 !important; 
 }
 .btn-rep:hover {
-    background: var(--success-hover);
-    box-shadow: 0 8px 25px var(--success-glow);
+    background: var(--primary-hover);
+    box-shadow: 0 10px 25px var(--primary-glow);
 }
 
 .btn-wizard { 
@@ -939,17 +939,17 @@ nav {
 }
 
 .btn-call { 
-    background: var(--success); 
-    color: white; 
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    color: #030712 !important; 
 }
 .btn-call:hover {
-    background: var(--success-hover);
-    box-shadow: 0 12px 30px var(--success-glow);
+    background: var(--primary-hover);
+    box-shadow: 0 12px 30px var(--primary-glow);
 }
 
 .btn-whatsapp { 
-    background: var(--whatsapp); 
-    color: white; 
+    background: linear-gradient(135deg, var(--whatsapp) 0%, var(--whatsapp-hover) 100%);
+    color: white !important; 
 }
 .btn-whatsapp:hover {
     background: var(--whatsapp-hover);
