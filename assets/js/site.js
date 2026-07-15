@@ -49,7 +49,7 @@ function processStep3() {
     `;
 
             // 💬 MADDE 2: WHATSAPP ŞABLONUNU HAZIR METİN HALİNE GETİRDİK
-    const waMessage = `Merhaba Jet Akü Ustası, web sitenizdeki akü sihirbazından fiyat teklifi almak istiyorum:\n\n` +
+    const waMessage = `Merhaba Akü Takviyecisi, web sitenizdeki akü sihirbazından fiyat teklifi almak istiyorum:\n\n` +
 `• Hizmet: ${wizardData.hizmet}\n` +
 `• Araç Marka/Model: ${wizardData.marka}\n` +
 `• Akü Amperi: ${wizardData.amper}\n` +
@@ -112,10 +112,10 @@ function getDynamicMessage() {
     
     // Anasayfa veya boş durumlar için varsayılan mesaj
     if (!headingText || headingText.includes("Sıkça") || headingText.includes("İletişim") || headingText.includes("Hakkımızda")) {
-        return "Merhaba Jet Akü Ustası, yolda kaldım. Yol yardım ve fiyat teklifi almak istiyorum.";
+        return "Merhaba Akü Takviyecisi, yolda kaldım. Yol yardım ve fiyat teklifi almak istiyorum.";
     }
     
-    return `Merhaba Jet Akü Ustası, ${headingText} hizmetiniz için yazıyorum.`;
+    return `Merhaba Akü Takviyecisi, ${headingText} hizmetiniz için yazıyorum.`;
 }
 
 // 📍 GPS Konumunu WhatsApp Mesajına Ekleyen Uber-Tarzı Fonksiyon
