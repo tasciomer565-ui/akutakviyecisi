@@ -125,6 +125,8 @@
 </head>
 <body>
 
+    <a href="#main-content" class="skip-link">İçeriğe geç</a>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-secondary">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
@@ -266,7 +268,7 @@
         <div class="glow-blob blob-2"></div>
         <div class="glow-blob blob-3"></div>
 
-        <section class="hero-section">
+        <section class="hero-section" id="main-content">
             <h1>7/24 Çanakkale Acil Mobil Akü Yol Yardım Hattı</h1>
             <p>Çanakkale'nin tüm ilçelerinde ve tüm araç markalarında arıza konumunuza en yakın mobil ekipleri sevk ediyoruz.</p>
             
@@ -404,8 +406,8 @@
             <div class="wizard-step" id="step3">
                 <div style="font-weight:700; margin-bottom:15px; color:#cbd5e1;">3. Araç Marka ve Model Bilgisini Yazın:</div>
                 <div class="wizard-inputs">
-                    <input type="text" id="wizMarka" placeholder="Örn: Renault Megane 2020">
-                    <input type="text" id="wizKonum" placeholder="Bulunduğunuz İlçe veya Semt (Örn: Lapseki Meydanı)">
+                    <input type="text" id="wizMarka" aria-label="Araç marka ve model bilgisi" placeholder="Örn: Renault Megane 2020">
+                    <input type="text" id="wizKonum" aria-label="Bulunduğunuz ilçe veya semt" placeholder="Bulunduğunuz İlçe veya Semt (Örn: Lapseki Meydanı)">
                 </div>
                 <div class="wizard-nav-btns">
                     <button class="wiz-btn wiz-btn-prev" onclick="prevStep(2)">Geri</button>
@@ -428,7 +430,7 @@
                 <button class="tab-btn" onclick="filterRegion('anadolu', this)">ANADOLU</button>
                 <button class="tab-btn" onclick="filterRegion('avrupa', this)">AVRUPA</button>
             </div>
-            <div class="search-box"><input type="text" id="liveSearch" onkeyup="searchDistricts()" placeholder="İlçe veya semt arayın..."></div>
+            <div class="search-box"><input type="text" id="liveSearch" onkeyup="searchDistricts()" aria-label="İlçe veya semt ara" placeholder="İlçe veya semt arayın..."></div>
         </section>
         
         <section id="ilceler-alani">

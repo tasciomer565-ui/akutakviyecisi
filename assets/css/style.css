@@ -2032,3 +2032,20 @@ body.light-theme .logo-slide img {
     filter: grayscale(1) brightness(0.2) !important;
     opacity: 0.75 !important;
 }
+/* Erişilebilirlik: İçeriğe Geç Linki */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 10px;
+    background: var(--primary);
+    color: #030712 !important;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 800;
+    text-decoration: none;
+    z-index: 100000;
+    transition: top 0.2s ease;
+}
+.skip-link:focus {
+    top: 10px;
+}
