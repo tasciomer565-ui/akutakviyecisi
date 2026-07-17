@@ -1,6 +1,6 @@
 {
   "name": "7/24 Akü Takviyecisi Yol Yardım",
-  "short_name": "Jet Akü",
+  "short_name": "Akü Takviyecisi",
   "description": "Çanakkale 7/24 Acil Mobil Akü Değişim ve Yol Yardım Hizmeti",
   "start_url": "/",
   "display": "standalone",
@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/assets/img/favicon.png",
+      "src": "/assets/img/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/assets/img/favicon.png",
+      "src": "/assets/img/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
