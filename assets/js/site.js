@@ -316,3 +316,23 @@ function injectThemeToggle() {
         document.body.classList.add('light-theme');
     }
 })();
+// Dönüşüm olaylarını izle: telefon ve WhatsApp tıklamaları (GA4)
+document.addEventListener('click', function (e) {
+    const link = e.target.closest('a[href]');
+    if (!link || typeof gtag !== 'function') return;
+
+    const href = link.getAttribute('href');
+    if (href.startsWith('tel:')) {
+        gtag('event', 'phone_click', {
+            event_category: 'engagement',
+            event_label: href.replace('tel:', ''),
+            page_location: window.location.href
+        });
+    } else if (href.includes('wa.me')) {
+        gtag('event', 'whatsapp_click', {
+            event_category: 'engagement',
+            event_label: href,
+            page_location: window.location.href
+        });
+    }
+});
