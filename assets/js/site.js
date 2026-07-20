@@ -316,6 +316,94 @@ function injectThemeToggle() {
         document.body.classList.add('light-theme');
     }
 })();
+// ✨ Scroll'da belirme animasyonu (Intersection Observer, kütüphanesiz)
+function initScrollReveal() {
+    const targets = document.querySelectorAll(
+        '.card, .stat-card, .option-card, .district-card, .hero-section h1, .hero-section p, section > h2, .live-status-bar'
+    );
+    targets.forEach(el => el.classList.add('reveal-el'));
+
+    if (!('IntersectionObserver' in window)) {
+        targets.forEach(el => el.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('is-visible'), (i % 6) * 60);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(el => observer.observe(el));
+}
+
+// 🔢 Sayı sayacı animasyonu (11, 10+, 30 dk, %100 gibi metinleri destekler)
+function animateStatCounters() {
+    const nums = document.querySelectorAll('.stat-num');
+    if (!nums.length || !('IntersectionObserver' in window)) return;
+
+    const runCount = (el) => {
+        const raw = el.textContent.trim();
+        const match = raw.match(/\d+/);
+        if (!match) return;
+
+        const target = parseInt(match[0], 10);
+        const prefix = raw.slice(0, match.index);
+        const suffix = raw.slice(match.index + match[0].length);
+        const duration = 900;
+        const start = performance.now();
+
+        function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(target * eased);
+            el.textContent = `${prefix}${current}${suffix}`;
+            if (progress < 1) {
+                requestAnimationFrame(tick);
+            } else {
+                el.textContent = raw;
+                el.classList.add('counted');
+            }
+        }
+        requestAnimationFrame(tick);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                runCount(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    nums.forEach(el => counterObserver.observe(el));
+}
+
+// 📌 Scroll'da navbar küçülme
+function initNavbarShrink() {
+    const nav = document.querySelector('nav.navbar');
+    if (!nav) return;
+    const onScroll = () => {
+        if (window.scrollY > 40) {
+            nav.classList.add('navbar-condensed');
+        } else {
+            nav.classList.remove('navbar-condensed');
+        }
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollReveal();
+    animateStatCounters();
+    initNavbarShrink();
+});
+
 // Dönüşüm olaylarını izle: telefon ve WhatsApp tıklamaları (GA4)
 document.addEventListener('click', function (e) {
     const link = e.target.closest('a[href]');

@@ -2049,3 +2049,134 @@ body.light-theme .logo-slide img {
 .skip-link:focus {
     top: 10px;
 }
+
+/* ==========================================================
+   PREMIUM MOTION LAYER
+   Scroll reveal, micro-interactions, animated background,
+   navbar shrink, counter support. Applied globally via
+   site.js so no HTML template changes are required.
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-el { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .hero-section::before { animation: none !important; }
+}
+
+/* Scroll reveal */
+.reveal-el {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal-el.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animated mesh gradient behind the hero */
+.hero-section {
+    position: relative;
+    isolation: isolate;
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: -120px -20px auto -20px;
+    height: 480px;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(0, 242, 254, 0.16), transparent 55%),
+        radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.14), transparent 55%),
+        radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.12), transparent 55%);
+    background-size: 200% 200%;
+    animation: meshDrift 16s ease-in-out infinite;
+    filter: blur(10px);
+}
+@keyframes meshDrift {
+    0%   { background-position: 0% 0%, 100% 0%, 50% 100%; }
+    50%  { background-position: 100% 50%, 0% 100%, 20% 30%; }
+    100% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+}
+
+/* Navbar shrink on scroll (nav element itself carries .navbar) */
+nav {
+    transition: background 0.3s ease, min-height 0.3s ease, padding 0.3s ease;
+}
+.navbar-brand img {
+    transition: max-height 0.3s ease, transform 0.3s ease;
+}
+nav.navbar-condensed {
+    min-height: 58px !important;
+    padding: 2px 0 !important;
+}
+nav.navbar-condensed .navbar-brand img {
+    max-height: 38px !important;
+}
+
+/* Card micro-interactions: lift + glow + border sweep */
+.card,
+.stat-card,
+.option-card,
+.district-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.card:hover,
+.district-card:hover,
+.option-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--card-border-hover);
+}
+.card::after,
+.district-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.08) 45%, transparent 60%);
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+}
+.card:hover::after,
+.district-card:hover::after {
+    transform: translateX(120%);
+}
+
+/* Button shine sweep */
+.hero-btn,
+.cta-btn,
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+.hero-btn::before,
+.cta-btn::before,
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+.hero-btn:hover::before,
+.cta-btn:hover::before,
+.btn:hover::before {
+    left: 130%;
+}
+
+/* Counter targets get a tiny pop when their animation finishes */
+.stat-num.counted {
+    animation: statPop 0.4s ease;
+}
+@keyframes statPop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
