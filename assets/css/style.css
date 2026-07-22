@@ -29,14 +29,21 @@
     scroll-behavior: smooth; 
 }
 
-body { 
+html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
     background: var(--bg-dark);
     background-image: radial-gradient(circle at 50% 0%, #0d1727 0%, #030712 70%);
     background-attachment: fixed;
-    color: #ffffff; 
-    line-height: 1.6; 
-    padding-bottom: 110px; 
+    color: #ffffff;
+    line-height: 1.6;
+    padding-bottom: 110px;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 /* Scrollbar Styling */
@@ -2193,4 +2200,9 @@ nav.navbar-condensed .navbar-brand img {
 }
 @media screen and (max-width: 600px) {
     .info-guides-grid { grid-template-columns: 1fr; }
+}
+
+/* Mobilde yatay tasmayi onlemek icin dekoratif blob'lari gizle */
+@media screen and (max-width: 900px) {
+    .glow-blob { display: none; }
 }
