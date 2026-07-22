@@ -2180,3 +2180,17 @@ nav.navbar-condensed .navbar-brand img {
     40% { transform: scale(1.08); }
     100% { transform: scale(1); }
 }
+
+/* Faydali Bilgiler - 3 sutunlu responsive kart grid */
+.info-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+}
+@media screen and (max-width: 991px) {
+    .info-guides-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 600px) {
+    .info-guides-grid { grid-template-columns: 1fr; }
+}
