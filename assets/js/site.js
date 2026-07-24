@@ -319,7 +319,7 @@ function injectThemeToggle() {
 // ✨ Scroll'da belirme animasyonu (Intersection Observer, kütüphanesiz)
 function initScrollReveal() {
     const targets = document.querySelectorAll(
-        '.card, .stat-card, .option-card, .district-card, .hero-section h1, .hero-section p, section > h2, .live-status-bar'
+        '.card, .stat-card, .option-card, .district-card, .hero-section h1, .hero-section p, section > h2, .live-status-bar, .bolge-detail-img, .breadcrumb'
     );
     targets.forEach(el => el.classList.add('reveal-el'));
 

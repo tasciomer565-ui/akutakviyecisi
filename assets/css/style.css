@@ -2202,6 +2202,49 @@ nav.navbar-condensed .navbar-brand img {
     .info-guides-grid { grid-template-columns: 1fr; }
 }
 
+/* Bölge kartları - görsel zoom ve rozet (badge) sistemi */
+.bolge-card-img-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+.bolge-card-img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+.card:hover .bolge-card-img {
+    transform: scale(1.09);
+    filter: brightness(1.05);
+}
+.bolge-card-img-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(10, 10, 12, 0.75) 100%);
+    pointer-events: none;
+}
+.bolge-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(10, 10, 12, 0.55);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 1.15rem;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
+}
+.card:hover .bolge-badge {
+    transform: scale(1.12) rotate(-6deg);
+    background: rgba(245, 158, 11, 0.25);
+    border-color: rgba(245, 158, 11, 0.5);
+}
+
 /* Mobilde yatay tasmayi onlemek icin dekoratif blob'lari gizle */
 @media screen and (max-width: 900px) {
     .glow-blob { display: none; }
