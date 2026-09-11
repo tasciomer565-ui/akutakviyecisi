@@ -1,7 +1,8 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/:location/:service", "destination": "/:location", "permanent": true }
   ],
   "headers": [
     {
