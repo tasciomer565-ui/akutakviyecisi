@@ -424,3 +424,61 @@ document.addEventListener('click', function (e) {
         });
     }
 });
+
+// 🍪 Çerez Onay Banner'ı (Google Consent Mode v2 ile entegre)
+(function () {
+    const CONSENT_KEY = 'akutakviyecisi_cerez_onayi';
+
+    function updateGtagConsent(granted) {
+        if (typeof gtag !== 'function') return;
+        gtag('consent', 'update', {
+            'ad_storage': granted ? 'granted' : 'denied',
+            'ad_user_data': granted ? 'granted' : 'denied',
+            'ad_personalization': granted ? 'granted' : 'denied',
+            'analytics_storage': granted ? 'granted' : 'denied'
+        });
+    }
+
+    let existing;
+    try {
+        existing = localStorage.getItem(CONSENT_KEY);
+    } catch (e) {
+        existing = null;
+    }
+
+    if (existing === 'granted') {
+        updateGtagConsent(true);
+        return;
+    }
+    if (existing === 'denied') {
+        return;
+    }
+
+    const banner = document.createElement('div');
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Çerez onayı');
+    banner.style.cssText = 'position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#0d0d0d; color:#e5e5e5; padding:16px; border-top:1px solid #333; box-shadow:0 -2px 12px rgba(0,0,0,0.4); font-size:14px; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px;';
+    banner.innerHTML = `
+        <span style="max-width:640px;">Sitemizde deneyiminizi iyileştirmek ve analiz yapmak için çerezler kullanıyoruz. Detaylar için <a href="/gizlilik-politikasi" style="color:#ffc107;">Gizlilik Politikası</a>'nı inceleyebilirsiniz.</span>
+        <span style="display:flex; gap:8px; flex-shrink:0;">
+            <button type="button" id="cerez-red" style="background:transparent; color:#bbb; border:1px solid #555; border-radius:6px; padding:8px 16px; cursor:pointer; font-size:14px;">Reddet</button>
+            <button type="button" id="cerez-kabul" style="background:#ffc107; color:#000; border:none; border-radius:6px; padding:8px 16px; cursor:pointer; font-weight:600; font-size:14px;">Kabul Et</button>
+        </span>
+    `;
+    document.body.appendChild(banner);
+
+    function saveChoice(value) {
+        try {
+            localStorage.setItem(CONSENT_KEY, value);
+        } catch (e) {}
+        banner.remove();
+    }
+
+    document.getElementById('cerez-kabul').addEventListener('click', function () {
+        updateGtagConsent(true);
+        saveChoice('granted');
+    });
+    document.getElementById('cerez-red').addEventListener('click', function () {
+        saveChoice('denied');
+    });
+})();
