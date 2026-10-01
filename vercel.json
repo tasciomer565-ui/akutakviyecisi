@@ -1,17 +1,147 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/:location/:service", "destination": "/:location", "permanent": true }
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/adatepekoyu",
+      "destination": "/adatepe",
+      "permanent": true
+    },
+    {
+      "source": "/adatepekoyu/:service",
+      "destination": "/adatepe",
+      "permanent": true
+    },
+    {
+      "source": "/evresebeldesi",
+      "destination": "/evrese",
+      "permanent": true
+    },
+    {
+      "source": "/evresebeldesi/:service",
+      "destination": "/evrese",
+      "permanent": true
+    },
+    {
+      "source": "/gumuscaybeldesi",
+      "destination": "/gumuscay",
+      "permanent": true
+    },
+    {
+      "source": "/gumuscaybeldesi/:service",
+      "destination": "/gumuscay",
+      "permanent": true
+    },
+    {
+      "source": "/karabigabeldesi",
+      "destination": "/karabiga",
+      "permanent": true
+    },
+    {
+      "source": "/karabigabeldesi/:service",
+      "destination": "/karabiga",
+      "permanent": true
+    },
+    {
+      "source": "/kavakkoybeldesi",
+      "destination": "/kavakkoy",
+      "permanent": true
+    },
+    {
+      "source": "/kavakkoybeldesi/:service",
+      "destination": "/kavakkoy",
+      "permanent": true
+    },
+    {
+      "source": "/mahmudiyekoyu",
+      "destination": "/mahmudiye",
+      "permanent": true
+    },
+    {
+      "source": "/mahmudiyekoyu/:service",
+      "destination": "/mahmudiye",
+      "permanent": true
+    },
+    {
+      "source": "/gurecci",
+      "destination": "/gureci",
+      "permanent": true
+    },
+    {
+      "source": "/gurecci/:service",
+      "destination": "/gureci",
+      "permanent": true
+    },
+    {
+      "source": "/geyiklisahil",
+      "destination": "/geyikli",
+      "permanent": true
+    },
+    {
+      "source": "/geyiklisahil/:service",
+      "destination": "/geyikli",
+      "permanent": true
+    },
+    {
+      "source": "/guzelyalisahil",
+      "destination": "/guzelyali",
+      "permanent": true
+    },
+    {
+      "source": "/guzelyalisahil/:service",
+      "destination": "/guzelyali",
+      "permanent": true
+    },
+    {
+      "source": "/guneylisahil",
+      "destination": "/guneyli",
+      "permanent": true
+    },
+    {
+      "source": "/guneylisahil/:service",
+      "destination": "/guneyli",
+      "permanent": true
+    },
+    {
+      "source": "/dardanossahil",
+      "destination": "/dardanos",
+      "permanent": true
+    },
+    {
+      "source": "/dardanossahil/:service",
+      "destination": "/dardanos",
+      "permanent": true
+    },
+    {
+      "source": "/:location/:service",
+      "destination": "/:location",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(self)" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(self)"
+        }
       ]
     }
   ]
